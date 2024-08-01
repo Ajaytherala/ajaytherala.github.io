@@ -1,147 +1,276 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Ajay's Portfolio</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
-<body class="w3-light-grey">
+<body>
+    <header>
+        <h1><span class="cursive"><b>Ajay Therala</b></span></h1>
+        <nav>
+            <ul>
+                <li><a href="#about"><span class="cursive">About Me</span></a></li>
+                <li><a href="#education"><span class="cursive">Education</span></a></li>
+                <li><a href="#publications"><span class="cursive">Publications</span></a></li>
+                <li><a href="#experience"><span class="cursive">Experience</span></a></li>
+                <li><a href="#projects"><span class="cursive">Projects</span></a></li>
+                <li><a href="#skills"><span class="cursive">Skills</span></a></li>
+                <li><a href="#contact"><span class="cursive">Contact</span></a></li>
+                <li><a href="assets/resume.pdf"  target="_blank"><span class="cursive">Resume</span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="about" class="fade-in">
+        <h2><span class="cursive">About Me</span></h2>
+        <p> A dedicated Computer Science Graduate Student at Arizona State University, maintaining a 4.0 GPA.  
+            I  have earned my Bachelor's Degree from Jawaharlal Nehru Technological University, Hyderabad (JNTUH) 
+            with a C.G.P.A of 9.21, majoring in Information Technology. 
+            <br>
+            <br>
+            During my penultimate year, I interned at TCS Hyderabad on a research project focused on data refinement and machine learning algorithms for network classification & malware detection. 
+            Working with datasets like NetML, CICIDS2017, and non-vpn2016, I explored various techniques and achieved significant 
+            results, including placing in the top 5 of the NetML - Network Traffic Analytics Challenge 2020. I have presented my 
+            findings at the ICAIIC 2022 Conference, showcasing my ability to share insights and collaborate with industry professionals.
+            <br>
+            <br>
+            Following my internship, I transitioned into a full-time ML Developer role at TCS. In this position, 
+            I played a key role in developing components for TCS Cognitive Product Support, an intelligent domain-specific search engine.
+            Notably, I developed the Data Lens component for training custom NER models and the Brickwork component for annotating 
+            entities and relationships from PDF documents. My work included significant contributions to GPT-powered bots, 
+            demonstrating my expertise in Generative AI, GPT Embeddings, and Prompt Engineering. 
+            I have also gained hands-on experience in web development and proficiency with AWS services such as AWS S3, Textract by 
+            delivering presentations on Pocs using the AWS.
+            <br>
+            <br>
+            My technical skills encompass C, Python, SQL, HTML, CSS, JavaScript, D3.js, Machine Learning, Deep Learning, 
+            Natural Language Processing, Git, Django, Flask, Azure ML Studio, AWS, Elastic Search, Generative AI, Knowledge Graphs, 
+            SQL Server, MongoDB, HDFS, and Apache Spark. I have earned certifications as a Microsoft Certified Azure Data Scientist and 
+            an Oracle Cloud Infrastructure Generative AI Certified Professional.
+            <br>
+            <br>
+            My projects involve advanced technologies such as Generative AI, Deep Learning, and Visualization techniques, with specific work on analyzing hallucinations in MLLMs and text similarity using Siamese Networks.
+            <br>
+            <br>
+            I am highly motivated and thrive in environments that value innovation and organizational success. 
+            I am eager to bring my skills and experience to your company and contribute to your continued success. 
+            I look forward to the opportunity to discuss how my background, skills, and enthusiasm can be a valuable addition to your 
+            team.</p>
+    </section>
+    <section id="education" class="slide-in">
+        <h2><span class="cursive">Education</span></h2>
+        <p><b>Bachelor's Degree in Information Techhnology from Jawaharlal Nehru Technological University</b></p>
+        <p>Aug 2017 - Jul 2021</p>
+        <p>CGPA : <b>9.21/10</b></p>
+        <hr>
+        <p><b>Master's Degree in Computer Science from Arizona State University</b></p>
+        <p>Aug 2023 - May 2025</p>
+        <p>CGPA : <b>4/4</b></p>
+    </section>
+    <section id="publications" class="fade-in">
+        <h2><span class="cursive">Publications</span></h2>
+        <ol>
+            <li><a href="https://openaccess.thecvf.com/content/CVPR2024W/EvGenFM/papers/Verma_Evaluating_Multimodal_Large_Language_Models_Across_Distribution_Shifts_and_Augmentations_CVPRW_2024_paper.pdf"><b>Evaluating Multimodal Large Language Models across Distribution Shifts and Augmentations</b></a></li>
+            <p>Publisher : IEEE/CVF Conference on CVPR Workshops</p>
+            <li><a href="https://ieeexplore.ieee.org/document/9722691s"><b>NetMD- Network Traffic Analysis and Malware Detection</b></a></li>
+            <p>Publisher : IEEE</p>
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+        </ol>
+    </section>
+    <section id="experience" class="slide-in">
+        <h2><span class="cursive">Professional Experience</span></h2>
+        <p><b>ML Developer, Tata Consultancy Services, Research & Innovation Team</b></p>
+        <p>Aug 2021 - Aug 2023</p>
+        <ul>
+            <li>Collaboratively engineered key components of TCS Cognitive Product Support, an Intelligent Domain-Specific Search Engine.</li>
+            <li>Crafted Data Lens, a component for training custom NER models, achieving an impressive 80% - 90% accuracy by leveraging Ontology.</li>
+            <li>Designed and executed BrickWork to manually annotate entities and relationships from PDF documents, producing ontologies and datasets for training NER and NLU models.</li>
+            <li>Demonstrated expertise in Generative AI, Embeddings, and Prompt Engineering by developing advanced GPT-powered bots. Delivered impactful client demos, earning high praise from esteemed clientele.</li>
+            <li>Acquired robust web development skills, including web scraping with Selenium and Chrome WebDriver.</li>
+            <li>Mastered AWS services, particularly S3 Bucket & Textract, to enhance data storage & automate document processing. Strategically planned & developed a POC for extracting key-value pairs from handwritten forms & streamlined data management.</li>
+        </ul>
+        <hr>
+        <p><b>Research Project Intern, Tata Consultancy Services, Research & Innovation Team</b></p>
+        <p>Mar 2021 - Jun 2021</p>
+        <ul>
+            <li>Investigated data refinement techniques and assessed ML and DL algorithms on malware detection datasets like NetML, CICIDS2017, and non-vpn2016.</li>
+            <li>Achieved a top 5 position in the NetML - Network Traffic Analytics Challenge 2020, surpassing baseline metrics.</li>
+            <li>Presented research findings at ICAIIC 2022, sharing key insights with peers and industry professionals.</li>
+        </ul>
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
+
+    </section>
+    <section id="projects" class="fade-in">
+        <h2><span class="cursive">Projects</span></h2>
+        <p><a href="https://github.com/Ajaytherala/CSE-572_Text-Similarity-Using-Siamese"><b>Text Similarity Model for Answer Validation for Online Learning Platforms</b></a></p>
+        <p><i>Tech stack : Python, NLP, Siamese Networks, LLM</i></p>
+        <ul>
+            <li>Engineered cost-effective automated answer validation systems for e-learning platforms, eliminating manual labor.</li>
+            <li>Developed a sophisticated "Text Similarity Model for Answer Validation" utilizing deep learning technologies.</li>
+            <li>Implemented a dual validation approach integrating Siamese Networks and Large Language Models for enhanced accuracy</li>
+        </ul>
+        <hr>
+        <p><a href="https://github.com/Ajaytherala/Sleep-Analysis-Visualization"><b>Visual Analysis of Sleep Studies</b></a></p>
+        <p><i>Tech stack : HTML, CSS, D3.js, Flask, Streamlit, Python</i></p>
+        <ul>
+            <li>Developed a visual interface for visualizing the sleep cycles and occurrences of apnea events using the Polysomnography (PSG) Data using Streamlit & Flask.</li>
+        </ul>
+        <hr>
+        <p><a href="https://github.com/shamanthak-hegde/CSE576-NLP"><b>Analyzing and Mitigating Hallucinations in Multi modal LLM’s</b></a></p>
+        <p><i>Tech stack : Python, Instruct BLIP, LLM's, Generative AI, Prompt Engineering</i></p>
+        <ul>
+            <li>Analyzed behavior of Multi modal LLM's such as Instruct BLIP across varied question types.</li>
+            <li>Utilized Mistral LLM to curate QA pairs from COCO Captions, for querying the model & detect hallucinated responses generated by the model.</li>
+            <li>Focused investigative efforts on count and color-based questions to unveil and document fabricated instances.</li>
+        </ul>
+
+        
+
+        
+    </section>
     
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <img src="assets/Ajay_Therala_PassPort_Picture.jpg" style="width:100%" alt="Ajay Therala">
-          <div class="w3-display-bottomleft w3-container w3-text-white">
-            <h2 style = "font-family: 'Times New Roman', Times, serif;font-style: italic;"><b><i>Ajay Therala</i></b></h2>
-          </div>
-        </div>
-        <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>ML Developer || Aspiring Data Scientist</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Tempe, AZ, US.</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>atherala@asu.edu</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>+1 (623) 286 -1552</p>
-          <hr>
+    
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>Python</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height:24px;width:95%"></div>
-          </div>
-          <p>Machine Learning</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height:24px;width:90%">
-              <div class="w3-center w3-text-white"></div>
+    <section id="skills" class="slide-in">
+        <h2><span class="cursive">Tech - Stack</span></h2>
+        <div class="skill-set">
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <h3>Python</h3>
             </div>
-          </div>
-          <p>Natural Language Processing</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height:24px;width:85%"></div>
-          </div>
-          <p>Data Science</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="height:24px;width:80%"></div>
-          </div>
-          <br>
-
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
-          </div>
-          
-         
-          <br>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Machine Learning</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Deep Learning</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h3>Natural Language Processing</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Generative AI</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fab fa-git"></i>
+                </div>
+                <h3>Git</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Django</h3>
+            </div>
+            
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>SQL</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>MongoDB</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Spark SQL</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>HTML</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fab fa-css3-alt"></i>
+                </div>
+                <h3>CSS</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fab fa-js"></i>
+                </div>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fab fa-js"></i>
+                </div>
+                <h3>D3.js</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>HDFS</h3>
+            </div>
+            <div class="skill">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>PySpark</h3>
+            </div>
+            
+            
+            
         </div>
-      </div><br>
+    </section>
 
-    <!-- End Left Column -->
-    </div>
-
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>ML Developer / TCS </b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Aug 2021 - Aug 2023</h6>
-          <p>Devised the components of TCS Cognitive Product Support: An Intelligent Domain Specific Search Engine. </p>
-          <ul list-style-type:circle>
-            <li> <b>DataLens :</b> Developed a component for training custom NER Models achieving a notable accuracy range of 80-90
-            percentage with the help of Ontology. </li>
-            <li> <b>BrickWork :</b> Engineered BrickWork component for manually annotating entities and relationships from pdf documents
-            by producing ontologies and datasets for training NER and NLU models as end result. </li>
-            <li><b>Insight Engine :</b> Worked in team for developing a component for indexing the paragraphs, facets in Elastic Search,
-            indexed paragraphs will be displayed on UI upon firing a query based upon relevancy score.</li>
-            <li>Played a integral role in building GPT-powered bots for telecom data, showcasing proficiency in GPT Embeddings,
-            Prompt Engineering, Completion, and Chat APIs of GPT within a team.</li>
-            <li>Collaborated with the team in building POC's where I've got some hands-on exposure on scraping web URLs using
-            selenium and chrome webdriver, AWS Textract for retrieving the key-value pairs, tabular content and storing in S3
-            Buckets.</li>
-          </ul>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Project Intern / TCS</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2021 - Jun 2021</h6>
-          <ul list-style-type:circle>
-            <li> Explored data refinement techniques and evaluated various machine learning and deep learning algorithms on Malware Detection datasets- NetML and CICIDS2017, and Traffic Classification dataset- non-vpn2016. </li>
-            <li> Experimental results submitted to the NetML - Network Traffic Analytics Challenge 2020 organized by ACANETS exceeded the baseline performance metrics and achieved an impressive position within the top 5 on the challenge leaderboard</li>
-            <li> Developed a framework for end-to-end Machine Learning workflow (Data Ingestion, Exploratory Analysis, Data Preprocessing, Training, and Testing) leveraging the Django framework</li>
-            <li>Presented findings and insights with fellow researchers and professionals in the domain at the ICAIIC 2022 Conference</li>
-          </ul>
+    <section id="contact" class="slide-in">
+        <h2><span class="cursive">Contact Me</span></h2>
+        <div class="contact-info">
+            <a href="mailto:atherala@asu.edu" class="contact-item" id="email">
+                <i class="fas fa-envelope"></i>
+                <span>atherala@asu.edu</span>
+            </a>
+            &nbsp;&nbsp;
+            <a href="tel:+16232861552" class="contact-item" id="phone">
+                <i class="fas fa-phone-alt"></i>
+                <span>(623) 286-1552</span>
+            </a>
+            &nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/ajay-therala7/" class="contact-item" id="linkedin" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+            </a>
+            &nbsp;&nbsp;
+            <a href="https://github.com/Ajaytherala" class="contact-item" id="github" target="_blank">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
 
         </div>
-       
+    </section>
 
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Arizona State University</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Aug 2021 - Present</h6>
-          <p><b>Master of Science, Computer Science</b></p>
-          <p> <b>G.P.A  - 3.78</b></p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Jawaharlal Nehru Technological University</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
-          <p><b>Bachelor of Technology, Information Technology</b></p>
-          <p><b>G.P.A - 9.21</b></p>
-          <hr>
-        </div>
-      </div>
 
-    <!-- End Right Column -->
-    </div>
-    
-  <!-- End Grid -->
-  </div>
-  
-  <!-- End Page Container -->
-</div>
-
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Let's Connect on.</p>
-  <a href="https://www.linkedin.com/in/ajay-therala7/", target="_blank", class="fa fa-linkedin w3-hover-opacity"></a>
-  <a href="https://github.com/Ajaytherala", target="_blank", class="fa fa-github w3-hover-opacity"></a>
-  <a href="https://www.instagram.com/ajay_therala.7?igsh=MTY2aHk4MDF4M2thZg==", target="_blank", class="fa fa-instagram w3-hover-opacity"></a>
-  <p><i>Developed by Ajay Therala</i></p>
-</footer>
-
+    <footer>
+        <p>&copy; <i><b>By Ajay Therala.</b></i></p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
