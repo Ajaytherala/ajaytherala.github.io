@@ -3,274 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajay's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>Ajay Therala's Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a192f;
+            color: #8892b0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 25, 47, 0.95);
+            padding: 20px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #64ffda;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-link:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: #64ffda;
+            margin-bottom: 20px;
+            opacity: 0;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0;
+        }
+
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+        }
+
+        .section-title {
+            color: #ccd6f6;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #64ffda;
+        }
+
+        .experience-card, .project-card {
+            background: #112240;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .experience-card:hover, .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: #112240;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: transparent;
+            color: #64ffda;
+            border: 2px solid #64ffda;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .download-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ccd6f6;
+        }
+
+        
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #112240;
+            border: 1px solid #233554;
+            border-radius: 5px;
+            color: #8892b0;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: transparent;
+            color: #64ffda;
+            border: 2px solid #64ffda;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .section {
+                padding: 50px 0;
+            }
+            .nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1><span class="cursive"><b>Ajay Therala</b></span></h1>
-        <nav>
+    <nav>
+        <div class="nav-container">
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#publications" class="nav-link">Research Publications</a>
+            <a href="#experience" class="nav-link">Professional Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <!-- <img src="assets\Ajay Therala Professional Picture.jpg" alt="Profile Photo" class="profile-photo"> -->
+            <div class="hero-content">
+                <h1>Ajay Therala</h1>
+                <p>Data Scientist & Data Engineer</p>
+                <a href="assets\Ajay's Resume.pdf" download="Ajay Therala's Resume.pdf" class="download-btn">Download Resume</a>
+            </div>
+        </header>
+
+        <section id="education" class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="experience-card">
+                <h3>Master of Science in Computer Science</h3>
+                <p>Arizona State University</p>
+                <p>August 2023 - May 2025</p>
+            </div>
+            <div class="experience-card">
+                <h3>Bachelor of Technology in Information Technology</h3>
+                <p>Jawaharlal Nehru Technological University</p>
+                <p>August 2017 - July 2021</p>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">PySpark</div>
+                <div class="skill-item">Hadoop</div>
+                <div class="skill-item">Hive</div>
+                <div class="skill-item">Javascript</div>
+                <div class="skill-item">Spark SQL</div>
+                <div class="skill-item">AWS </div>
+                <div class="skill-item">Generative AI</div>
+                <div class="skill-item">Deep Learning</div>
+                <div class="skill-item">Natural Language Processing</div>
+                <div class="skill-item">PyTorch</div>
+                <div class="skill-item">Tensorflow</div>
+                <div class="skill-item">OpenSearch</div>
+                <div class="skill-item">Scikit-learn</div>
+                <div class="skill-item">Git</div>
+                <div class="skill-item">Data Structures & Algorithms</div>
+                <div class="skill-item">Databases </div>
+            </div>
+        </section>
+
+        <section id="publications" class="section">
+            <h2 class="section-title">Research Publications</h2>
             <ul>
-                <li><a href="#about"><span class="cursive">About Me</span></a></li>
-                <li><a href="#education"><span class="cursive">Education</span></a></li>
-                <li><a href="#publications"><span class="cursive">Publications</span></a></li>
-                <li><a href="#experience"><span class="cursive">Experience</span></a></li>
-                <li><a href="#projects"><span class="cursive">Projects</span></a></li>
-                <li><a href="#skills"><span class="cursive">Skills</span></a></li>
-                <li><a href="#contact"><span class="cursive">Contact</span></a></li>
-                <li><a href="assets/resume.pdf"  target="_blank"><span class="cursive">Resume</span></a></li>
+                <li><a href="https://openaccess.thecvf.com/content/CVPR2024W/EvGenFM/papers/Verma_Evaluating_Multimodal_Large_Language_Models_Across_Distribution_Shifts_and_Augmentations_CVPRW_2024_paper.pdf"><h4 style="color: white;">Evaluating Multimodal Large Language Models across Distribution Shifts and Augmentations</h4></a></li>
+                <li><a href="https://ieeexplore.ieee.org/document/9722691"><h4 style="color: white;">NetMD- Network Traffic Analysis and Malware Detection</h4></a></li>
+                
             </ul>
-        </nav>
-    </header>
-    <section id="about" class="fade-in">
-        <h2><span class="cursive">About Me</span></h2>
-        <p> A dedicated Computer Science Graduate Student at Arizona State University, maintaining a 4.0 GPA.  
-            I  have earned my Bachelor's Degree from Jawaharlal Nehru Technological University, Hyderabad (JNTUH) 
-            with a C.G.P.A of 9.21, majoring in Information Technology. 
-            <br>
-            <br>
-            During my penultimate year, I interned at TCS Hyderabad on a research project focused on data refinement and machine learning algorithms for network classification & malware detection. 
-            Working with datasets like NetML, CICIDS2017, and non-vpn2016, I explored various techniques and achieved significant 
-            results, including placing in the top 5 of the NetML - Network Traffic Analytics Challenge 2020. I have presented my 
-            findings at the ICAIIC 2022 Conference, showcasing my ability to share insights and collaborate with industry professionals.
-            <br>
-            <br>
-            Following my internship, I transitioned into a full-time ML Developer role at TCS. In this position, 
-            I played a key role in developing components for TCS Cognitive Product Support, an intelligent domain-specific search engine.
-            Notably, I developed the Data Lens component for training custom NER models and the Brickwork component for annotating 
-            entities and relationships from PDF documents. My work included significant contributions to GPT-powered bots, 
-            demonstrating my expertise in Generative AI, GPT Embeddings, and Prompt Engineering. 
-            I have also gained hands-on experience in web development and proficiency with AWS services such as AWS S3, Textract by 
-            delivering presentations on Pocs using the AWS.
-            <br>
-            <br>
-            My technical skills encompass C, Python, SQL, HTML, CSS, JavaScript, D3.js, Machine Learning, Deep Learning, 
-            Natural Language Processing, Git, Django, Flask, Azure ML Studio, AWS, Elastic Search, Generative AI, Knowledge Graphs, 
-            SQL Server, MongoDB, HDFS, and Apache Spark. I have earned certifications as a Microsoft Certified Azure Data Scientist and 
-            an Oracle Cloud Infrastructure Generative AI Certified Professional.
-            <br>
-            <br>
-            My projects involve advanced technologies such as Generative AI, Deep Learning, and Visualization techniques, with specific work on analyzing hallucinations in MLLMs and text similarity using Siamese Networks.
-            <br>
-            <br>
-            I am highly motivated and thrive in environments that value innovation and organizational success. 
-            I am eager to bring my skills and experience to your company and contribute to your continued success. 
-            I look forward to the opportunity to discuss how my background, skills, and enthusiasm can be a valuable addition to your 
-            team.</p>
-    </section>
-    <section id="education" class="slide-in">
-        <h2><span class="cursive">Education</span></h2>
-        <p><b>Bachelor's Degree in Information Techhnology from Jawaharlal Nehru Technological University</b></p>
-        <p>Aug 2017 - Jul 2021</p>
-        <p>CGPA : <b>9.21/10</b></p>
-        <hr>
-        <p><b>Master's Degree in Computer Science from Arizona State University</b></p>
-        <p>Aug 2023 - May 2025</p>
-        <p>CGPA : <b>4/4</b></p>
-    </section>
-    <section id="publications" class="fade-in">
-        <h2><span class="cursive">Publications</span></h2>
-        <ol>
-            <li><a href="https://openaccess.thecvf.com/content/CVPR2024W/EvGenFM/papers/Verma_Evaluating_Multimodal_Large_Language_Models_Across_Distribution_Shifts_and_Augmentations_CVPRW_2024_paper.pdf"><b>Evaluating Multimodal Large Language Models across Distribution Shifts and Augmentations</b></a></li>
-            <p>Publisher : IEEE/CVF Conference on CVPR Workshops</p>
-            <li><a href="https://ieeexplore.ieee.org/document/9722691s"><b>NetMD- Network Traffic Analysis and Malware Detection</b></a></li>
-            <p>Publisher : IEEE</p>
+        </section>
 
-        </ol>
-    </section>
-    <section id="experience" class="slide-in">
-        <h2><span class="cursive">Professional Experience</span></h2>
-        <p><b>ML Developer, Tata Consultancy Services, Research & Innovation Team</b></p>
-        <p>Aug 2021 - Aug 2023</p>
-        <ul>
-            <li>Collaboratively engineered key components of TCS Cognitive Product Support, an Intelligent Domain-Specific Search Engine.</li>
-            <li>Crafted Data Lens, a component for training custom NER models, achieving an impressive 80% - 90% accuracy by leveraging Ontology.</li>
-            <li>Designed and executed BrickWork to manually annotate entities and relationships from PDF documents, producing ontologies and datasets for training NER and NLU models.</li>
-            <li>Demonstrated expertise in Generative AI, Embeddings, and Prompt Engineering by developing advanced GPT-powered bots. Delivered impactful client demos, earning high praise from esteemed clientele.</li>
-            <li>Acquired robust web development skills, including web scraping with Selenium and Chrome WebDriver.</li>
-            <li>Mastered AWS services, particularly S3 Bucket & Textract, to enhance data storage & automate document processing. Strategically planned & developed a POC for extracting key-value pairs from handwritten forms & streamlined data management.</li>
-        </ul>
-        <hr>
-        <p><b>Research Project Intern, Tata Consultancy Services, Research & Innovation Team</b></p>
-        <p>Mar 2021 - Jun 2021</p>
-        <ul>
-            <li>Investigated data refinement techniques and assessed ML and DL algorithms on malware detection datasets like NetML, CICIDS2017, and non-vpn2016.</li>
-            <li>Achieved a top 5 position in the NetML - Network Traffic Analytics Challenge 2020, surpassing baseline metrics.</li>
-            <li>Presented research findings at ICAIIC 2022, sharing key insights with peers and industry professionals.</li>
-        </ul>
-
-
-    </section>
-    <section id="projects" class="fade-in">
-        <h2><span class="cursive">Projects</span></h2>
-        <p><a href="https://github.com/Ajaytherala/CSE-572_Text-Similarity-Using-Siamese"><b>Text Similarity Model for Answer Validation for Online Learning Platforms</b></a></p>
-        <p><i>Tech stack : Python, NLP, Siamese Networks, LLM</i></p>
-        <ul>
-            <li>Engineered cost-effective automated answer validation systems for e-learning platforms, eliminating manual labor.</li>
-            <li>Developed a sophisticated "Text Similarity Model for Answer Validation" utilizing deep learning technologies.</li>
-            <li>Implemented a dual validation approach integrating Siamese Networks and Large Language Models for enhanced accuracy</li>
-        </ul>
-        <hr>
-        <p><a href="https://github.com/Ajaytherala/Sleep-Analysis-Visualization"><b>Visual Analysis of Sleep Studies</b></a></p>
-        <p><i>Tech stack : HTML, CSS, D3.js, Flask, Streamlit, Python</i></p>
-        <ul>
-            <li>Developed a visual interface for visualizing the sleep cycles and occurrences of apnea events using the Polysomnography (PSG) Data using Streamlit & Flask.</li>
-        </ul>
-        <hr>
-        <p><a href="https://github.com/shamanthak-hegde/CSE576-NLP"><b>Analyzing and Mitigating Hallucinations in Multi modal LLM’s</b></a></p>
-        <p><i>Tech stack : Python, Instruct BLIP, LLM's, Generative AI, Prompt Engineering</i></p>
-        <ul>
-            <li>Analyzed behavior of Multi modal LLM's such as Instruct BLIP across varied question types.</li>
-            <li>Utilized Mistral LLM to curate QA pairs from COCO Captions, for querying the model & detect hallucinated responses generated by the model.</li>
-            <li>Focused investigative efforts on count and color-based questions to unveil and document fabricated instances.</li>
-        </ul>
+        <section id="experience" class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-card">
+                <h3>AI Full Stack Developer - Technology at Arizona State University</h3>
+                <p>Aug 2024 - Present</p>
+                <ul>
+                    <li><b>Optimized Data Ingestion Pipeline</b> - Spearheaded a <b>95% reduction</b> in file chunking times for large datasets (from 1500 s to 4.87s) by integrating an <b>advanced chunking approach</b>, enhancing data processing efficiency</li>
+                    <li><b>AWS Lambda Pipeline Deployment</b> -  Containerized & Deployed docker-image to <b>AWS ECR</b>, and integrated it with <b>AWS Lambda</b> for serverless execution. Enhanced pipeline efficiency by instantiating multiprocessing in the chunking code to fully leverage AWS Lambda's vCPUs.</li>
+                    <li>Crafted a script that leverages the <b>Google Drive API</b> to extract and index course content from a Google Drive into <b>OpenSearch</b>, empowering seamless <b>Retrieval-Augmented Generation (RAG)</b> for fast and precise content discovery.</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Systems Engineer (ML Developer), Digital Research & Innovation - Tata Consultancy Services Limited</h3>
+                <p>August 2021 - August 2023</p>
+                <ul>
+                    <li>Engineered core components for TCS Cognitive Product Support, an intelligent domain-specific search engine, <b>improving search accuracy by 30%</b>.</li>
+                    <li>Crafted Data Lens, a component for training custom NER models, achieving an <b>impressive 80% - 90% accuracy</b> by leveraging Ontology</li>
+                    <li>Demonstrated expertise in Generative AI, and Prompt Engineering by developing advanced GPT-powered bots handling over <b>5,000+ interactions</b> daily. Delivered <b>impactful client demos</b>, earning high praise from esteemed clientele.</li>
+                    <li>Mastered AWS services to optimize data storage and automate document processing. Strategically planned and developed a proof of concept (POC) for extracting key-value pairs from handwritten forms, resulting in streamlined data management. </li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Research Project Intern - Tata Consultancy Services Limited</h3>
+                <p>January 2021 - August 2021</p>
+                <ul>
+                    <li>Investigated data refinement and balancing techniques while evaluating Machine Learning and Deep Learning algorithms on NetML, CICIDS2017, and non-vpn2016 datasets, <b>achieving a 6% improvement</b> in detection accuracy through Bagging & Boosting Algorithms.</li>
+                    <li>Accomplished <b>top 5 position</b> in the <b>NetML - Network Traffic Analytics Challenge 2020</b>, surpassing baseline metrics.</li>
+                    <li>Presented research findings at <b>ICAIIC 2022</b>, sharing key insights with over 300 peers and industry professionals.</li>
+                </ul>
+            </div>
+        </section>
 
         
 
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-card">
+              
+                <h3>Text Similarity Model for Question Answer Validation for Online Learning Platforms</h3>
+                <p>Engineered an automated answer validation system for e-learning, achieving 87% accuracy by combining Siamese Networks and Large Language Models, improving baseline accuracy by 6%.</p>
+            </div>
+            <div class="project-card">
+
+                <h3>Analyzing and Mitigating Hallucinations in Multi modal LLM's</h3>
+                <p>Conducted analysis on multimodal LLMs like Instruct BLIP using 15,000 test cases, identifying 47% hallucinations in count and color-based questions and curating 75,000 QA pairs with Mistral LLM for further validation.</p>
+            </div>
+        </section>
+
         
-    </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact Me</h2>
+            <form class="contact-form"  action="https://formspree.io/f/mjkvyron"
+            method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate elements on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hero section animations
+            gsap.to('.hero-content h1', {
+                opacity: 1,
+                y: -20,
+                duration: 1,
+                delay: 0.5
+            });
+            gsap.to('.hero-content p', {
+                opacity: 1,
+                y: -20,
+                duration: 1,
+                delay: 0.8
+            });
+
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                gsap.to(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top center",
+                        end: "bottom center",
+                        toggleActions: "play none none reverse"
+                    },
+                    opacity: 1,
+                    y: -20,
+                    duration: 1
+                });
+            });
+        });
+
     
-    
-
-    <section id="skills" class="slide-in">
-        <h2><span class="cursive">Tech - Stack</span></h2>
-        <div class="skill-set">
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fab fa-python"></i>
-                </div>
-                <h3>Python</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <h3>Machine Learning</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <h3>Deep Learning</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-comment-dots"></i>
-                </div>
-                <h3>Natural Language Processing</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3>Generative AI</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fab fa-git"></i>
-                </div>
-                <h3>Git</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>Django</h3>
-            </div>
-            
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-database"></i>
-                </div>
-                <h3>SQL</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-database"></i>
-                </div>
-                <h3>MongoDB</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-database"></i>
-                </div>
-                <h3>Spark SQL</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>HTML</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fab fa-css3-alt"></i>
-                </div>
-                <h3>CSS</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fab fa-js"></i>
-                </div>
-                <h3>JavaScript</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fab fa-js"></i>
-                </div>
-                <h3>D3.js</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-database"></i>
-                </div>
-                <h3>HDFS</h3>
-            </div>
-            <div class="skill">
-                <div class="skill-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>PySpark</h3>
-            </div>
-            
-            
-            
-        </div>
-    </section>
-
-    <section id="contact" class="slide-in">
-        <h2><span class="cursive">Contact Me</span></h2>
-        <div class="contact-info">
-            <a href="mailto:atherala@asu.edu" class="contact-item" id="email">
-                <i class="fas fa-envelope"></i>
-                <span>atherala@asu.edu</span>
-            </a>
-            &nbsp;&nbsp;
-            <a href="tel:+16232861552" class="contact-item" id="phone">
-                <i class="fas fa-phone-alt"></i>
-                <span>(623) 286-1552</span>
-            </a>
-            &nbsp;&nbsp;
-            <a href="https://www.linkedin.com/in/ajay-therala7/" class="contact-item" id="linkedin" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
-                <span>LinkedIn</span>
-            </a>
-            &nbsp;&nbsp;
-            <a href="https://github.com/Ajaytherala" class="contact-item" id="github" target="_blank">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
-
-        </div>
-    </section>
-
-
-    <footer>
-        <p>&copy; <i><b>By Ajay Therala.</b></i></p>
-    </footer>
-    <script src="script.js"></script>
+        
+    </script>
 </body>
 </html>
