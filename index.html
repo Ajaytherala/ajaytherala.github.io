@@ -1,435 +1,469 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajay Therala's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ajay Therala - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark Blue-Gray */
+            color: #E5E7EB; /* Light Gray */
+        }
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1F2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4F46E5; /* Indigo */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366F1;
+        }
+        /* Style for the active navigation link */
+        .nav-link.active {
+            color: #6366F1;
+            transform: scale(1.1);
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        /* Animation for sections fading in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Typing effect cursor */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #6366F1;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <span class="nav-brand">Ajay Therala</span>
-                <button class="mobile-menu-btn" id="menuBtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="4" x2="20" y1="12" y2="12"></line>
-                        <line x1="4" x2="20" y1="6" y2="6"></line>
-                        <line x1="4" x2="20" y1="18" y2="18"></line>
-                    </svg>
-                </button>
-                <div class="nav-links" id="navLinks">
-                    <button onclick="scrollToSection('about')">About</button>
-                    <button onclick="scrollToSection('education')">Education</button>
-                    <button onclick="scrollToSection('skills')">Skills</button>
-                    <button onclick="scrollToSection('publications')">Publications</button>
-                    <button onclick="scrollToSection('projects')">Projects</button>
-                    <button onclick="scrollToSection('experience')">Experience</button>
-                    <!-- <button onclick="downloadResume()">Resume</button> -->
-                </div>
-            </div>
+<body class="flex">
+
+    <!-- Sticky Navigation Sidebar -->
+    <nav class="hidden lg:block w-1/5 h-screen sticky top-0 p-8 flex flex-col justify-center space-y-4 bg-gray-900/50 backdrop-blur-sm border-r border-gray-700">
+        <div class="text-center mb-8">
+            <img src="src/Ajay_Therala_Professional_Photo.JPEG" alt="Profile Photo" class="w-28 h-28 rounded-full mx-auto mb-4 border-4 border-gray-700 shadow-lg">
+            <h1 class="text-2xl font-bold text-white">Ajay Therala</h1>
+            <p id="typing-text" class="text-indigo-400 h-6"></p>
+        </div>
+        <div class="pt-8 space-y-4"></div>
+            <a href="#about" class="block nav-link text-gray-400 hover:text-indigo-400 font-medium text-lg">About</a>
+            <a href="#education" class="block nav-link text-gray-400 hover:text-indigo-400 font-medium text-lg">Education</a>
+            <a href="#skills" class="block nav-link text-gray-400 hover:text-indigo-400 font-medium text-lg">Skills</a>
+            <a href="#experience" class="block nav-link text-gray-400 hover:text-indigo-400 font-medium text-lg">Experience</a>
+            <a href="#projects" class="block nav-link text-gray-400 hover:text-indigo-400 font-medium text-lg">Projects</a>
+            <a href="#publications" class="block nav-link text-gray-400 hover:text-indigo-400 font-medium text-lg">Publications</a>
+        </div>
+        <div class="pt-8 space-y-4">
+             <a href="#contact" class="block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Contact Me</a>
+            <a href="src/Ajay_Therala_Resume.pdf" download class="block w-full text-center bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Download CV</a>
         </div>
     </nav>
 
-    <main class="container">
-        <section id="about" class="about-section">
-            <div class="about-content">
-                <div class="profile-image">
-                    <img src="src/Ajay_Therala_Professional_Photo.JPEG" alt="Profile">
-                </div>
-                <div class="about-text">
-                    <h1>Ajay Therala</h1>
-                    <p class="title">AI Engineer, Software Developer & Researcher</p>
-                    <div class="social-links">
-                        <a href="https://github.com/Ajaytherala" class="social-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                                <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                            </svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/ajay-therala7" class="social-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect width="4" height="12" x="2" y="9"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="description">
-                        Innovative AI Engineer and Software Developer with expertise in Generative AI, scalable data pipelines, and end-to-end ML solutions. Passionate about building intelligent systems, optimizing performance, and solving complex problems at scale. Experienced in research, software development, and deploying AI-driven applications in real-world scenarios.
-                    </p>
-                </div>
+    <!-- Mobile Header -->
+    <header class="lg:hidden fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-white">Ajay Therala</h1>
+            <button id="mobile-menu-button" class="text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="#about" class="block nav-link text-gray-300 hover:text-indigo-400">About</a>
+            <a href="#education" class="block nav-link text-gray-300 hover:text-indigo-400">Education</a>
+            <a href="#skills" class="block nav-link text-gray-300 hover:text-indigo-400">Skills</a>
+            <a href="#experience" class="block nav-link text-gray-300 hover:text-indigo-400">Experience</a>
+            <a href="#projects" class="block nav-link text-gray-300 hover:text-indigo-400">Projects</a>
+            <a href="#publications" class="block nav-link text-gray-300 hover:text-indigo-400">Publications</a>
+            <a href="#contact" class="block nav-link text-gray-300 hover:text-indigo-400">Contact</a>
+            <a href="resume.pdf" download class="block mt-2 text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Download CV</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="w-full lg:w-4/5 p-8 md:p-12 lg:p-16">
+        
+        <!-- About Section -->
+        <section id="about" class="min-h-screen flex items-center fade-in-section">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">About Me</h2>
+                <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl">
+                    Innovative AI Engineer and Software Developer with expertise in Generative AI, scalable data pipelines, and end-to-end ML solutions. Passionate about building intelligent systems, optimizing performance, and solving complex problems at scale. Experienced in research, software development, and deploying AI-driven applications in real-world scenarios.
+                </p>
             </div>
         </section>
 
-        <section id="education" class="section">
-            <h2>Education</h2>
-            <div class="education-list">
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3>Master of Science in Computer Science</h3>
-                            <p>Arizona State University, Tempe, Arizona, United States.</p>
-                        </div>
-                        <p class="year">2023 - 2025</p>
+        <!-- Education Section -->
+        <section id="education" class="min-h-screen flex items-center fade-in-section">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Education</h2>
+                <div class="space-y-8 border-l-2 border-indigo-500 pl-8">
+                    <div class="relative">
+                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-indigo-500 rounded-full"></div>
+                        <h3 class="text-2xl font-semibold text-white">Master of Science in Computer Science</h3>
+                        <p class="text-indigo-400">Arizona State University, Tempe, United States. | 2023 - 2025</p>
+                        <p class="text-gray-400 mt-2">G.P.A - 3.93/4.0.</p>
                     </div>
-                    <p class="description"><b>G.P.A  - 4.0</b></p>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3>Bachelor of Technology in Information Technology</h3>
-                            <p>Jawahrlal Nehru Technological University, Hyderabad, Telangana, India.</p>
-                        </div>
-                        <p class="year">2017-2021</p>
-                    </div>
-                    <p class="description"><b>G.P.A  - 9.21</b></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">PySpark</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">Spark SQL</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Web Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Java Script</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Streamlit</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Data Science & ML</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps & Cloud</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Linux</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">SQL Server</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">DynamoDB</span>
-                        <span class="skill-tag">Elasticsearch</span>
-                        <span class="skill-tag">OpenSearch</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Software Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Data Structures & Algorithms</span>
-                        <span class="skill-tag">Object Oriented Design</span>
+                    <div class="relative">
+                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-indigo-500 rounded-full"></div>
+                        <h3 class="text-2xl font-semibold text-white">Bachelor of Technology in Information Technology</h3>
+                        <p class="text-indigo-400">Jawaharlal Nehru Technological University, Hyderabad, India. | 2016 - 2020</p>
+                        <p class="text-gray-400 mt-2">G.P.A - 9.21/10.0.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="publications" class="section">
-            <h2>Publications</h2>
-            <div class="publications-list">
-                <div class="publication-item">
-                    <h3><a href="https://openaccess.thecvf.com/content/CVPR2024W/EvGenFM/papers/Verma_Evaluating_Multimodal_Large_Language_Models_Across_Distribution_Shifts_and_Augmentations_CVPRW_2024_paper.pdf"> Multimodal Large Language Models across Distribution Shifts and Augmentations</a></h3>
-                    <div class="publication-footer">
-                        <p>IEEE</p>
-                        <span class="year-tag">2024</span>
+        <!-- Skills Section -->
+        <section id="skills" class="min-h-screen flex items-center fade-in-section">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Skills</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <!-- Skill Item -->
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fab fa-python text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">Python</p>
                     </div>
-                </div>
-                <div class="publication-item">
-                    <h3><a href="https://ieeexplore.ieee.org/document/9722691">NetMD- Network Traffic Analysis and Malware Detection</a></h3>
-                    <div class="publication-footer">
-                        <p>IEEE</p>
-                        <span class="year-tag">2022</span>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fab fa-js-square text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">JavaScript</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="src/big_data_analysis.png" alt="AI Analytics Platform">
-                    <div class="project-content">
-                        <h3>Analysis of Yelp Dataset</h3>
-                        <p>Optimized Yelp dataset processing by converting JSON to Parquet, leveraging PySpark & Spark SQL for scalable ETL, data transformations, and complex queries in a distributed environment.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Data Visualization</span>
-                            <span class="project-tag">PySpark</span>
-                            <span class="project-tag">Spark SQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Ajaytherala/Analysis-of-Yelp-Dataset" class="project-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                                </svg>
-                            </a>
-                        </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fab fa-cogs text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">PySpark</p>
                     </div>
-                </div>
-                <div class="project-card">
-                    <img src="src/ai_resume_anlayzer.png" alt="Task Management System">
-                    <div class="project-content">
-                        <h3>AI Resume Analyzer</h3>
-                        <p> Developed an AWS-powered AI Resume Analyzer leveraging Amazon Bedrock's LLM, API Gateway, and Lambda to assess job fit, identify skill gaps, and provide AI-driven career insights through a Streamlit-based UI. </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">AWS</span>
-                            <span class="project-tag">StreamLit</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Ajaytherala/AI-Resume-Analyzer" class="project-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                                </svg>
-                            </a>
-                            
-                        </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-database text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">SQL/NoSQL</p>
                     </div>
-                </div>
-                <div class="project-card">
-                    <img src="src/analyzing_hallucinations.jpg" alt="Collaboration Tool">
-                    <div class="project-content">
-                        <h3>Analyzing and Mitigating Hallucinations in Multi modal LLM's</h3>
-                        <p>Evaluated multi-modal LLM's like Instruct BLIP on 15,000+ test cases, leveraging Mistral LLM to generate 75,000+ QA pairs and identifying 47% hallucinated responses in count and color-based questions..</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Mistral LLM</span>
-                            <span class="project-tag">Instruct BLIP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                                </svg>
-                            </a>
-                        </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fab fa-docker text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">Docker</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section">
-            <h2>Professional Experience</h2>
-            <div class="experience-list">
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>AI Data Engineer</h3>
-                            <p>Dexian LLC </P>
-                            <P> Arizona State University - AI Acceleration Team (Client)</p>
-                        </div>
-                        <div class="experience-meta">
-                            <p>May 2025 - Present</p>
-                            <p>Tempe, AZ</p>
-                        </div>
+                     <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fab fa-aws text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">AWS</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fab fa-git-alt text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">Git</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-database text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">Spark SQL</p>
                     </div>
                     
-                <ul class="achievements">
-                        <li>Designed and implemented conversation truncation logic to efficiently manage context length, preventing context length errors and ensuring reliable LLM performance.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>AI Full Stack Developer</h3>
-                            <p>Arizona State University - AI Acceleration Team</p>
-                        </div>
-                        <div class="experience-meta">
-                            <p>Aug 2024 - May 2025</p>
-                            <p>Tempe, AZ</p>
-                        </div>
+                    <!-- Tensorflow -->
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-brain text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">TensorFlow</p>
                     </div>
                     
-                <ul class="achievements">
-                        <li>Optimized Data Ingestion Pipeline - Spearheaded a 95% reduction in file chunking times for large datasets (from 1500 s to 4.87s) by integrating an advanced chunking approach, enhancing data processing efficiency.</li>
-                        <li>Containerized & Deployed a Docker image to AWS ECR, integrated it with AWS Lambda for server-less execution. Proposed & Led the implementation of multiprocessing to enhance pipeline efficiency and fully leverage AWS Lambda's vCPUs.</li>
-                        <li>Crafted a script that leverages the Google Drive API to extract and index course content into Open Search, empowering seamless Retrieval-Augmented Generation (RAG) for fast and precise content discovery.</li>
-                        <li>Developed logic for parsing JSON files, achieving a 30% reduction in ingestion time and enhancing RAG efficiency.</li>
-                        <li>Initiated an exploration of Bedrock's Knowledge Bases to assess their efficiency & potential as a replacement for the current pipeline.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Machine Learning Engineer</h3>
-                            <p>Tata Consultancy Services</p>
-                        </div>
-                        <div class="experience-meta">
-                            <p>Aug 2021 - Aug 2023</p>
-                            <p>Hyderabad, TS</p>
-                        </div>
+                    <!-- PyTorch -->
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-robot text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">PyTorch</p>
                     </div>
                     
-                    <ul class="achievements">
-                        <li>Engineered core components for a domain-specific search engine (Cognitive Product Support), enhanced search accuracy by 30%.</li>
-                        <li>Crafted Data Lens, a component for training custom NER models, achieving an impressive 80% - 90% accuracy.</li>
-                        <li>Demonstrated expertise in Generative AI, Prompt Engineering by developing advanced GPT-powered bots handling over 5,000+ interactions daily. Delivered impactful client demos, earning high praise from esteemed clientele.</li>
-                        <li>Automated document processing using AWS Textract, developed a POC for key-value extraction from handwritten forms.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Research Project Intern</h3>
-                            <p>Tata Consultancy Services</p>
-                        </div>
-                        <div class="experience-meta">
-                            <p>Jan 2021 - Aug 2021</p>
-                            <p>Remote</p>
-                        </div>
+                    <!-- Scikit-learn -->
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-chart-line text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">Scikit-learn</p>
                     </div>
-                    <ul class="achievements">
-                        <li>Improved detection accuracy by 6% on NetML, CICIDS2017, and non-vpn2016 datasets through data refinement techniques, and Bagging & Boosting algorithms. </li>
-                        <li>Achieved a top 5 position in the NetML Network Traffic Analytics Challenge 2020 and presented research findings at ICAIIC 2022 to over 300 peers and industry professionals.</li>
+                    
+                    <!-- Vector Databases -->
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-layer-group text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">Vector DBs</p>
+                    </div>
+                    
+                    <!-- Terraform -->
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-server text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">Terraform</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                   </ul>
+        <!-- Experience Section -->
+        <section id="experience" class="min-h-screen flex items-center fade-in-section">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Experience</h2>
+                <div class="space-y-12">
+                    <!-- Experience Item -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">AI Data Engineer</h3>
+                                <p class="text-indigo-400">Dexian LLC</p>
+                            </div>
+                            <span class="text-gray-400">May 2025 - Present</span>
+                        </div>
+                        <ul class="list-disc list-outside mt-4 text-gray-300 space-y-2">
+                            <li>Designed & implemented conversation   truncation logic to efficiently manage context length, preventing context length errors and ensuring reliable LLM performance.</li>
+                            <li>Spearheaded the end-to-end design and development of a universal URL processing API with integrated caching, expanding platform capabilities from handling specific domain to any web URL.</li>
+                        </ul>
+                    </div>
+                    <!-- Experience Item -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">AI Full Stack Developer</h3>
+                                <p class="text-indigo-400">Technology at Arizona State University</p>
+                            </div>
+                            <span class="text-gray-400">Aug 2024 - May 2025</span>
+                        </div>
+                        <ul class="list-disc list-inside mt-4 text-gray-300 space-y-2">
+                            <li>Optimized Data Ingestion Pipeline - Spearheaded a 95% reduction in file chunking times for large datasets (from 1500 s to 4.87s) by integrating an advanced chunking approach, enhancing data processing efficiency</li>
+                            <li>Developed a CI/CD pipeline to streamline end-to-end deployment workflow: iteratively updated and tested code in SageMaker, managed
+                            version control, dockerized the application, published image to ECR & deployed to Lambda for serverless execution.</li>
+                            <li>Engineered a RAG pipeline by integrating the Google Drive API to extract & index into Open Search, empowering seamless Retrieval-Augmented Generation (RAG) for fast and precise content discovery</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800/50 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">ML Developer</h3>
+                                <p class="text-indigo-400">Tata Consultancy Services</p>
+                            </div>
+                            <span class="text-gray-400">Aug 2021 - Aug 2023</span>
+                        </div>
+                        <ul class="list-disc list-outside mt-4 text-gray-300 space-y-2">
+                            <li>Engineered core components for a domain-specific search engine (Cognitive Product Support), enhanced search accuracy by 30%.
+                            </li>
+                            <li>Crafted Data Lens, a component for training custom NER models, achieving an impressive 80% - 90% accuracy.</li>
+                            <li>Demonstrated expertise in Generative AI, Prompt Engineering by developing advanced GPT-powered bots handling over 5,000+ interactions daily. Delivered impactful client demos, earning high praise from esteemed clientele.
+                            </li>
+                            <li>Led the development of an automated document processing solution using Textract, and built a POC for extracting data from handwritten forms.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800/50 p-6 rounded-lg shadow-lg hover:shadow-indigo-500/30 transition-shadow duration-300">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">ML Research Project Intern</h3>
+                                <p class="text-indigo-400">Tata Consultancy Services</p>
+                            </div>
+                            <span class="text-gray-400">Jan 2021 - Aug 2021</span>
+                        </div>
+                        <ul class="list-disc list-outside mt-4 text-gray-300 space-y-2">
+                            <li>Improved detection accuracy by 6% on NetML, CICIDS2017, and non-vpn2016 datasets through data refinement techniques, and Bagging & Boosting algorithms.</li>
+                            <li>Achieved a top 5 position in the NetML Network Traffic Analytics Challenge 2020 and presented research findings at ICAIIC 2022 to
+                            over 300 peers and industry professionals.
+                            </li>
+                            <li>Orchestrated end-to-end machine learning workflow using Django, encompassing ingestion, EDA, training, and evaluation.
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="min-h-screen flex items-center fade-in-section">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Projects</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Project Card -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden group">
+                        <img src="src/ai_resume_anlayzer.png" alt="AI Resume Analyzer" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-white mb-2">AI Resume Analyzer</h3>
+                            <p class="text-gray-400 mb-4"> AWS-powered AI Resume Analyzer leveraging Amazon Bedrock's LLM, API Gateway, and Lambda to assess job fit, identify skill gaps, and provide AI-driven career insights through a Streamlit-based UI.</p>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Ajaytherala/AI-Resume-Analyzer" class="text-indigo-400 hover:underline">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden group">
+                        <img src="src/big_data_analysis.png" alt="Analysis of Yelp Dataset" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-white mb-2">Analysis of Yelp Dataset</h3>
+                            <p class="text-gray-400 mb-4">Optimized Yelp dataset processing by converting JSON to Parquet, leveraging PySpark & Spark SQL for scalable ETL, data transformations, and complex queries in a distributed environment.</p>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Ajaytherala/Analysis-of-Yelp-Dataset" class="text-indigo-400 hover:underline">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg overflow-hidden group">
+                        <img src="src/analyzing_hallucinations.jpg" alt="Analyzing Hallucinations in Multi modal LLM's" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-white mb-2">Analysis of Yelp Dataset</h3>
+                            <p class="text-gray-400 mb-4">Benchmarked state-of-the-art MLLMs across VQAv2 and CLEVR datasets under multimodal distribution shifts, revealing key robustness
+                            gaps in synthetic and complex reasoning settings.</p>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/shamanthak-hegde/CSE576-NLP" class="text-indigo-400 hover:underline">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="min-h-screen flex items-center fade-in-section">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Publications</h2>
+                <div class="space-y-6">
+                    <!-- Publication Item -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-white">Evaluating Multimodal Large Language Models across Distribution Shifts and Augmentations</h3>
+                        <p class="text-indigo-400">2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)</p>
+                        <a href="https://ieeexplore.ieee.org/document/10677899" class="text-indigo-400 hover:underline mt-2 inline-block">Read More</a>
+                    </div>
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-white"> NetMD- Network Traffic Analysis and Malware Detection</h3>
+                        <p class="text-indigo-400">2022 International Conference on Artificial Intelligence in Information and Communication (ICAIIC)</p>
+                        <a href="https://ieeexplore.ieee.org/document/9722691" class="text-indigo-400 hover:underline mt-2 inline-block">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="min-h-screen flex items-center fade-in-section">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Get In Touch</h2>
+                <p class="text-lg text-gray-300 mb-8 max-w-2xl">
+                    I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out. I'll do my best to get back to you!
+                </p>
+                <div class="flex items-center space-x-6">
+                    <a href="mailto:john.doe@email.com" class="flex items-center space-x-2 text-lg text-gray-300 hover:text-indigo-400 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        <span>atherala@asu.edu</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ajay-therala7/" target="_blank" class="text-gray-300 hover:text-indigo-400 transition-colors text-2xl">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Ajaytherala" target="_blank" class="text-gray-300 hover:text-indigo-400 transition-colors text-2xl">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
         </section>
         
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <h3>Let's Connect</h3>
-                    <p>Feel free to reach out for collaborations </p>
-
-                    <p class="footer_title">Designed & Developed by Ajay Therala.</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://github.com/Ajaytherala" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ajay-therala7" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect width="4" height="12" x="2" y="9"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-                    <a href="mailto:ajaytherala.7@gmail.com" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile menu toggle
-            const menuBtn = document.getElementById('menuBtn');
-            const navLinks = document.getElementById('navLinks');
-            
-            // Ensure elements exist before adding event listeners
-            if (menuBtn && navLinks) {
-                menuBtn.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                });
-            }
-    
-            // Smooth scrolling for navigation
-            function scrollToSection(sectionId) {
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    const navHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
-                    const targetPosition = section.offsetTop - navHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Typing Effect ---
+            const typingTextElement = document.getElementById('typing-text');
+            const phrases = ["Software Developer", "Pulished AI Researcher", "AI Engineer", "Problem Solver", "Generative AI Developer"];
+            let phraseIndex = 0;
+            let letterIndex = 0;
+            let currentPhrase = "";
+            let isDeleting = false;
+
+            function type() {
+                const fullPhrase = phrases[phraseIndex];
+                if (isDeleting) {
+                    currentPhrase = fullPhrase.substring(0, letterIndex - 1);
+                    letterIndex--;
+                } else {
+                    currentPhrase = fullPhrase.substring(0, letterIndex + 1);
+                    letterIndex++;
                 }
-            }
-    
-            // Function to download resume
-            function downloadResume() {
-                const resumeUrl = './src/Ajay_Therala_Resume.pdf';
-                
-                // Create an anchor element for download
-                const link = document.createElement('a');
-                link.href = resumeUrl;
-                link.download = 'Ajay_Therala_Resume.pdf'; // Set the download file name
-                
-                // Simulate a click event for downloading the file
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-    
-            // Make scrollToSection available globally
-            window.scrollToSection = scrollToSection;
-    
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (navLinks && navLinks.classList.contains('active') && 
-                    !e.target.closest('.navbar')) {
-                    navLinks.classList.remove('active');
+
+                typingTextElement.innerHTML = currentPhrase + '<span class="typing-cursor"></span>';
+
+                let typeSpeed = 150;
+                if (isDeleting) {
+                    typeSpeed /= 2;
                 }
-            });
-    
-            // Add scroll animation to elements
+
+                if (!isDeleting && letterIndex === fullPhrase.length) {
+                    typeSpeed = 2000; // Pause at end
+                    isDeleting = true;
+                } else if (isDeleting && letterIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+            type();
+
+            // --- Active Nav Link on Scroll ---
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
             const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5 // 50% of the section must be visible
             };
-    
-            const observer = new IntersectionObserver((entries) => {
+
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
                     }
                 });
             }, observerOptions);
-    
-            // Observe all sections with class 'section'
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+
+            sections.forEach(section => {
                 observer.observe(section);
+            });
+            
+            // --- Fade-in Sections on Scroll ---
+            const fadeInSections = document.querySelectorAll('.fade-in-section');
+            const fadeInObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeInSections.forEach(section => {
+                fadeInObserver.observe(section);
+            });
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
             });
         });
     </script>
-    
 </body>
 </html>
