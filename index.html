@@ -204,6 +204,14 @@
                         <i class="fas fa-server text-5xl text-indigo-400 mb-2"></i>
                         <p class="font-semibold">Terraform</p>
                     </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-project-diagram text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">LangChain</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center hover:bg-indigo-600 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <i class="fas fa-stream text-5xl text-indigo-400 mb-2"></i>
+                        <p class="font-semibold">LangGraph</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -225,6 +233,7 @@
                         <ul class="list-disc list-outside mt-4 text-gray-300 space-y-2">
                             <li>Designed & implemented conversation   truncation logic to efficiently manage context length, preventing context length errors and ensuring reliable LLM performance.</li>
                             <li>Spearheaded the end-to-end design and development of a universal URL processing API with integrated caching, expanding platform capabilities from handling specific domain to any web URL.</li>
+                            <li>Deployed a scalable ingestion API to onboard 25,000+ Canvas courses into OpenSearch for RAG pipelines, establishing role-based access control (RBAC) by provisioning professors as owners and students as viewers.</li>
                         </ul>
                     </div>
                     <!-- Experience Item -->
@@ -288,7 +297,7 @@
                 <div class="grid md:grid-cols-2 gap-8">
                     <!-- Project Card -->
                     <div class="bg-gray-800 rounded-lg overflow-hidden group">
-                        <img src="src/ai_resume_anlayzer.png" alt="AI Resume Analyzer" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="src/ai_resume_anlayzer.png" alt="AI Resume Analyzer" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
                         <div class="p-6">
                             <h3 class="text-2xl font-semibold text-white mb-2">AI Resume Analyzer</h3>
                             <p class="text-gray-400 mb-4"> AWS-powered AI Resume Analyzer leveraging Amazon Bedrock's LLM, API Gateway, and Lambda to assess job fit, identify skill gaps, and provide AI-driven career insights through a Streamlit-based UI.</p>
@@ -299,7 +308,7 @@
                     </div>
                     <!-- Project Card -->
                     <div class="bg-gray-800 rounded-lg overflow-hidden group">
-                        <img src="src/big_data_analysis.png" alt="Analysis of Yelp Dataset" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="src/big_data_analysis.png" alt="Analysis of Yelp Dataset" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
                         <div class="p-6">
                             <h3 class="text-2xl font-semibold text-white mb-2">Analysis of Yelp Dataset</h3>
                             <p class="text-gray-400 mb-4">Optimized Yelp dataset processing by converting JSON to Parquet, leveraging PySpark & Spark SQL for scalable ETL, data transformations, and complex queries in a distributed environment.</p>
@@ -309,7 +318,7 @@
                         </div>
                     </div>
                     <div class="bg-gray-800 rounded-lg overflow-hidden group">
-                        <img src="src/analyzing_hallucinations.jpg" alt="Analyzing Hallucinations in Multi modal LLM's" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="src/analyzing_hallucinations.jpg" alt="Analyzing Hallucinations in Multi modal LLM's" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
                         <div class="p-6">
                             <h3 class="text-2xl font-semibold text-white mb-2">Analysis of Yelp Dataset</h3>
                             <p class="text-gray-400 mb-4">Benchmarked state-of-the-art MLLMs across VQAv2 and CLEVR datasets under multimodal distribution shifts, revealing key robustness
@@ -319,9 +328,41 @@
                             </div>
                         </div>
                     </div>
+                    <div class="bg-gray-800 rounded-lg overflow-hidden group">
+                        <img src="src/sql_querying_agent.png" alt="SQL Querying Agent" class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300 bg-black">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">SQL Querying Agent</h3>
+                            <p class="text-gray-400 mb-4">
+                                Enables querying structured databases using plain English.  
+                                Translates natural language → SQL → executes → returns results.
+                            </p>
+                            <p class="text-gray-400 mb-2"><span class="font-semibold">Tech stack:</span> LLMs, SQLAlchemy, DB connectors, LangChain-style orchestration.</p>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Ajaytherala/Agentic-AI" target="_blank" class="text-indigo-400 hover:underline">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Agent System Card -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden group">
+                        <img src="src/multi_agent_system.png" alt="Multi-Agent System" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">Multi-Agent Architecture System</h3>
+                            <p class="text-gray-400 mb-4">
+                                Demonstrates collaboration of specialized agents:  
+                                Analyst → Expert → Reviewer → End.  
+                                Automates schema analysis, SQL execution, and report generation.
+                            </p>
+                            <p class="text-gray-400 mb-2"><span class="font-semibold">Outcome:</span> Human-like agents collaborate to transform raw data into structured insights (PDF reports).</p>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Ajaytherala/Agentic-AI" target="_blank" class="text-indigo-400 hover:underline">View Code</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
 
         <!-- Publications Section -->
         <section id="publications" class="min-h-screen flex items-center fade-in-section">
